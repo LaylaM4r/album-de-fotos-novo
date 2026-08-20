@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
 
 /* ============================================================
-   BLOCO 0: ESTILOS GLOBAIS E MODAL
+   SEÇÃO 1: TIPOGRAFIA E TEXTOS DO BLOCO (TÍTULO E DESCRIÇÃO)
    ============================================================ */
 body {
     overflow-x: hidden;
@@ -15,7 +15,7 @@ body {
     font-family: "Great Vibes", cursive;
     font-weight: 400;
     font-style: normal;
-    padding: 0 10px; /* Evita que o texto encoste nas bordas da tela */
+    padding: 0 10px;
 }
 
 .texto-template-imagem-home {
@@ -25,7 +25,9 @@ body {
     font-size: 17px;
 }
 
-/* Modal de Zoom */
+/* ============================================================
+   SEÇÃO 2: MODAL DE ZOOM E ANIMAÇÕES
+   ============================================================ */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -62,7 +64,6 @@ body {
     line-height: 1;
 }
 
-/* Animações de Scroll e Entrada */
 .hidden {
     transform: translateY(100px);
     opacity: 0;
@@ -90,7 +91,7 @@ body {
 }
 
 /* ============================================================
-   BLOCO 1: ESTRUTURA BASE DO COMPONENTE (NEUTRA)
+   SEÇÃO 3: ESTRUTURA BASE DO CONTAINER DO ÁLBUM
    ============================================================ */
 .bloco-album-container {
     width: 100%;
@@ -116,8 +117,10 @@ body {
 }
 
 /* ============================================================
-   BLOCO 2: TEMPLATE 1 (APENAS 1 FOTO CENTRALIZADA)
+   SEÇÃO 4: LAYOUTS DINÂMICOS DE GRADE (1 A 9 FOTOS)
    ============================================================ */
+
+/* Layout: 1 Foto */
 .bloco-album-container .galeria-grid.grid-qtd-1 {
     display: flex;
     justify-content: center;
@@ -145,9 +148,7 @@ body {
     transform: scale(1.03);
 }
 
-/* ============================================================
-   BLOCO 3: TEMPLATE 2 (2 IMAGENS)
-   ============================================================ */
+/* Layout: 2 Fotos */
 .bloco-album-container .galeria-grid.grid-qtd-2 {
     display: flex;
     justify-content: center;
@@ -171,9 +172,7 @@ body {
     transform: scale(1.03);
 }
 
-/* ============================================================
-   BLOCO 4: TEMPLATE 3 (3 IMAGENS)
-   ============================================================ */
+/* Layout: 3 Fotos */
 .bloco-album-container .galeria-grid.grid-qtd-3 {
     display: flex;
     flex-wrap: wrap;
@@ -197,9 +196,7 @@ body {
     transform: scale(1.03);
 }
 
-/* ============================================================
-   BLOCO 5: TEMPLATE 4 (4 IMAGENS - GRID 2x2)
-   ============================================================ */
+/* Layout: 4 Fotos */
 .bloco-album-container .galeria-grid.grid-qtd-4 {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -219,9 +216,7 @@ body {
     border-radius: 4px;
 }
 
-/* ============================================================
-   BLOCO 6: TEMPLATE 5 (5 IMAGENS - FLEX 2+2+1)
-   ============================================================ */
+/* Layout: 5 Fotos */
 .bloco-album-container .galeria-grid.grid-qtd-5 {
     display: flex;
     flex-wrap: wrap;
@@ -240,9 +235,7 @@ body {
     border-radius: 4px;
 }
 
-/* ============================================================
-   BLOCO 7: TEMPLATE 6 (6 IMAGENS - GRID 3x2)
-   ============================================================ */
+/* Layout: 6 Fotos */
 .bloco-album-container .galeria-grid.grid-qtd-6 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -262,9 +255,7 @@ body {
     border-radius: 4px;
 }
 
-/* ============================================================
-   BLOCO 8: TEMPLATE 7 (7 IMAGENS - GRID 3 COLUNAS + 1 CENTRADA ABAIXO)
-   ============================================================ */
+/* Layout: 7 Fotos */
 .bloco-album-container .galeria-grid.grid-qtd-7 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -284,17 +275,14 @@ body {
     border-radius: 4px;
 }
 
-/* Centraliza a 7ª foto na última linha */
 .bloco-album-container .galeria-grid.grid-qtd-7 .imagem-album:nth-child(7) {
-    grid-column: 2; /* Força ficar exatamente na 2ª coluna (centro) */
+    grid-column: 2;
 }
 
-/* ============================================================
-   BLOCO 9: TEMPLATE 8 (8 IMAGENS - GRID 3 COLUNAS + 2 CENTRADAS ABAIXO)
-   ============================================================ */
+/* Layout: 8 Fotos */
 .bloco-album-container .galeria-grid.grid-qtd-8 {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr)); /* Usamos 6 colunas virtuais para facilitar a centralização de 2 fotos */
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 15px;
     justify-items: center;
     align-items: center;
@@ -303,7 +291,6 @@ body {
     margin: 0 auto;
 }
 
-/* As 6 primeiras imagens ocupam 2 colunas virtuais cada (3 fotos por linha) */
 .bloco-album-container .galeria-grid.grid-qtd-8 .imagem-album {
     grid-column: span 2;
     width: 100%;
@@ -313,19 +300,15 @@ body {
     border-radius: 4px;
 }
 
-/* A 7ª imagem começa na coluna 2 e ocupa 2 colunas */
 .bloco-album-container .galeria-grid.grid-qtd-8 .imagem-album:nth-child(7) {
     grid-column: 2 / span 2;
 }
 
-/* A 8ª imagem começa na coluna 4 e ocupa 2 colunas */
 .bloco-album-container .galeria-grid.grid-qtd-8 .imagem-album:nth-child(8) {
     grid-column: 4 / span 2;
 }
 
-/* ============================================================
-   BLOCO 10: TEMPLATE 9 (9 IMAGENS - GRID 3x3 PERFEITO)
-   ============================================================ */
+/* Layout: 9 Fotos */
 .bloco-album-container .galeria-grid.grid-qtd-9 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -346,7 +329,7 @@ body {
 }
 
 /* ============================================================
-   BLOCO 11: RESPONSIVIDADE (MOBILE)
+   SEÇÃO 5: AJUSTES DE RESPONSIVIDADE (MOBILE)
    ============================================================ */
 @media (max-width: 768px) {
     .bloco-album-container {
@@ -360,7 +343,6 @@ body {
         gap: 15px;
     }
 
-    /* FORÇA COLUNA ÚNICA EM TODOS OS TEMPLATES DE GRID */
     .bloco-album-container .galeria-grid.grid-qtd-4,
     .bloco-album-container .galeria-grid.grid-qtd-6,
     .bloco-album-container .galeria-grid.grid-qtd-7,
@@ -374,7 +356,6 @@ body {
         gap: 12px;
     }
 
-    /* ANULA O POSICIONAMENTO ESPECIAL DOS TEMPLATES 7 E 8 NO MOBILE */
     .bloco-album-container .galeria-grid.grid-qtd-7 .imagem-album:nth-child(7),
     .bloco-album-container .galeria-grid.grid-qtd-8 .imagem-album,
     .bloco-album-container .galeria-grid.grid-qtd-8 .imagem-album:nth-child(7),
@@ -382,7 +363,6 @@ body {
         grid-column: auto;
     }
 
-    /* TEMPLATES COM FLEXBOX (1, 2, 3 E 5) */
     .bloco-album-container .galeria-grid.grid-qtd-1,
     .bloco-album-container .galeria-grid.grid-qtd-2,
     .bloco-album-container .galeria-grid.grid-qtd-3,
@@ -396,7 +376,6 @@ body {
         gap: 12px;
     }
 
-    /* PADRONIZA O TAMANHO DE TODAS AS IMAGENS NO MOBILE */
     .bloco-album-container .galeria-grid.grid-qtd-1 .imagem-album,
     .bloco-album-container .galeria-grid.grid-qtd-2 .imagem-album,
     .bloco-album-container .galeria-grid.grid-qtd-3 .imagem-album,
@@ -415,7 +394,6 @@ body {
         display: block;
     }
 
-    /* TEXTO E TÍTULO CENTRALIZADOS */
     .bloco-album-container .texto-template-imagem-home {
         max-width: 100%;
         font-size: 0.95rem;
@@ -425,13 +403,11 @@ body {
     }
 
     .bloco-album-container .titulo-data-imagem-home {
-        /*clamp para o tamanho ser dinâmico: 
-        mínimo 1.5rem, ideal 5vw, máximo 2rem */
         font-size: clamp(1.5rem, 8vw, 2rem); 
         margin-bottom: 15px;
         line-height: 1.2;
         text-align: center;
-        padding: 0 10px;    /* Evita que o texto encoste nas bordas */
+        padding: 0 10px;
     }
 
     .modal-imagem {

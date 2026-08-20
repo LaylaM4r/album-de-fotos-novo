@@ -1,3 +1,6 @@
+/* ============================================================
+   SEÇÃO 1: ESTRUTURA GERAL E LINHA DIVISÓRIA DO FOOTER
+   ============================================================ */
 .footer-container {
     width: 100%;
     display: flex;
@@ -8,20 +11,20 @@
 
 .footer-linha-fina {
     width: 90%;
-    /* Largura da linha */
     max-width: 1200px;
     height: 1px;
     background-color: #eee;
     margin-bottom: 30px;
 }
 
+/* ============================================================
+   SEÇÃO 2: CONTEÚDO, TEXTO E ÍCONES DAS REDES SOCIAIS
+   ============================================================ */
 .footer-content {
     display: flex;
     flex-direction: column;
-    /* Deixa texto em cima e ícones embaixo */
     align-items: center;
     gap: 15px;
-    /* Espaço entre o texto e os ícones */
 }
 
 .footer-texto {
@@ -35,23 +38,25 @@
 .footer-redes {
     display: flex;
     gap: 20px;
-    /* Espaço entre os ícones */
 }
 
 .footer-icone {
     width: 50px;
-    /* Tamanho menor para os ícones */
     height: 50px;
     transition: transform 0.2s ease, opacity 0.2s ease;
     cursor: pointer;
 }
 
-/* Efeito ao passar o mouse */
+/* Efeito de destaque ao passar o ponteiro sobre os ícones */
 .footer-icone:hover {
     transform: scale(1.1);
 }
 
-/* --- AJUSTE PARA MOBILE --- */
+/* ============================================================
+   SEÇÃO 3: AJUSTES DE RESPONSIVIDADE (MOBILE)
+   ============================================================ */
+
+/* Dispositivos móveis (Até 768px) */
 @media (max-width: 768px) {
     .footer-texto {
         font-size: 1.1rem;

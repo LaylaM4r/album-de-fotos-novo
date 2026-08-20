@@ -1,41 +1,56 @@
+/* ============================================================
+   SEÇÃO 1: RESET GLOBAL E VARIÁVEIS DE TEMA
+   ============================================================ */
 * {
-  margin: 0px;
-  border: 0px;
-  padding: 0px;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
-/* Cores para o modo claro (padrão) */
+/* Paleta de cores para o Tema Claro (Padrão) */
 :root {
     --bg-home: #f1f1f1;
     --texto-principal: #000;
     --cor-borda: #eee;
 }
 
-/* Cores que serão ativadas pelo seu botão no Navbar */
+/* Paleta de cores para o Tema Escuro (Ativado via classe no <body>) */
 body.dark-mode {
-    --bg-home: #060314;      /* Um preto grafite elegante */
-    --texto-principal: #e6e6e6; /* Branco acinzentado para não arder o olho */
-    --cor-borda: #333333;
+    --bg-home: #060314;         /* Fundo escuro */
+    --texto-principal: #e6e6e6; /* Texto claro com alto contraste e conforto visual */
+    --cor-borda: #333333;       /* Cor de bordas e divisores para o modo escuro */
 }
 
-/* Aplicação Global */
+/* ============================================================
+   SEÇÃO 2: ESTILOS GLOBAIS DO CORPO DA PÁGINA (BODY)
+   ============================================================ */
 body {
     background-color: var(--bg-home);
     color: var(--texto-principal);
-    transition: background-color 0.3s ease, color 0.3s ease; /* Efeito suave de transição */
+    /* Transição suave ao alternar entre os temas claro e escuro */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ============================================================
+   SEÇÃO 3: ADAPTAÇÕES DE COMPONENTES AO TEMA DINÂMICO
+   ============================================================ */
+
+/* Navegação */
 .home-container-nav {
-    border-bottom: 1px solid var(--cor-borda); /* Em vez de #eee */
-}
-.home-container-nav-button {
-    color: var(--texto-principal); /* Garante que o link mude de cor */
+    border-bottom: 1px solid var(--cor-borda);
 }
 
+.home-container-nav-button {
+    color: var(--texto-principal);
+}
+
+/* Rodapé */
 .footer-container {
     border-top: 1px solid var(--cor-borda);
 }
 
+/* Inverte a cor dos ícones do rodapé no modo escuro (Preto -> Branco) */
 body.dark-mode .footer-icone {
-    filter: invert(1); /* Inverte o preto para branco automaticamente */
+    filter: invert(1);
 }

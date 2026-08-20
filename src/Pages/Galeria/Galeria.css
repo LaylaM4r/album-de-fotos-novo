@@ -1,4 +1,16 @@
-/* --- GRID DA GALERIA PRINCIPAL --- */
+/* ============================================================
+   SEÇÃO 1: TÍTULO E GRADE PRINCIPAL DA GALERIA
+   ============================================================ */
+.galeria-titulo-principal {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
 .galeria-grid {
     display: grid;
     grid-template-columns: repeat(4, 200px);
@@ -8,16 +20,6 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.galeria-titulo-principal {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 40px;
-    margin-bottom: 20px;
 }
 
 .galeria-item {
@@ -44,8 +46,9 @@
     transform: scale(1.04);
 }
 
-/* --- MODAL GLOBAL (OVERLAY) --- */
-/* --- MODAL GLOBAL (IGUAL À HOME) --- */
+/* ============================================================
+   SEÇÃO 2: ESTRUTURA DO MODAL E ESTILIZAÇÃO DA SCROLLBAR
+   ============================================================ */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -62,28 +65,18 @@
     animation: fadeIn 0.3s ease forwards;
 }
 
-/* --- WRAPPER --- */
 .modal-wrapper-conteudo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Ajustado para 85% para bater com a Home */
     max-width: 85%;
     max-height: 85%;
     overflow-y: auto;
     scrollbar-width: thin;
-    /* Esconde scroll no Firefox */
+    scrollbar-color: #555 transparent; /* Firefox */
 }
 
-/* --- BARRA DE ROLAGEM MINIMALISTA --- */
-
-/* Firefox */
-.modal-wrapper-conteudo {
-    scrollbar-width: thin;
-    scrollbar-color: #555 transparent;
-}
-
-/* Chrome, Edge e Safari */
+/* Customização de Scrollbar para Chrome, Edge e Safari */
 .modal-wrapper-conteudo::-webkit-scrollbar {
     width: 6px;
 }
@@ -92,19 +85,19 @@
     border-radius: 10px;
 }
 
-/* --- IMAGEM DENTRO DO MODAL --- */
+/* ============================================================
+   SEÇÃO 3: IMAGEM E TEXTOS INFORMATIVOS DO MODAL
+   ============================================================ */
 .galeria-modal-imagem {
     width: auto;
     height: auto;
     max-height: 70vh;
-    /* Limita a altura para o texto aparecer sem scroll se for curto */
     object-fit: contain;
     border: 4px solid white;
     flex-shrink: 0;
     animation: zoomGiroSuave 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* --- TEXTOS --- */
 .galeria-imagem-container {
     color: white;
     text-align: center;
@@ -130,7 +123,9 @@
     font-style: normal;
 }
 
-/* --- RESPONSIVIDADE DA GALERIA --- */
+/* ============================================================
+   SEÇÃO 4: AJUSTES DE RESPONSIVIDADE (TABLETS E MOBILE)
+   ============================================================ */
 
 /* Tablets e Laptops (Até 1024px) */
 @media (max-width: 1024px) {
@@ -141,6 +136,24 @@
         justify-content: center;
         width: 100%;
         box-sizing: border-box;
+    }
+
+    .modal-wrapper-conteudo {
+        max-width: 90%;
+        max-height: 90%;
+    }
+
+    .galeria-modal-imagem {
+        max-height: 50vh; 
+        width: auto;
+        max-width: 90%;
+        object-fit: contain;
+    }
+
+    .galeria-imagem-container-texto {
+        font-size: 1.2rem;
+        line-height: 1.4;
+        padding: 10px;
     }
 }
 
@@ -154,46 +167,17 @@
         width: 100%;
         box-sizing: border-box;
     }
-}
 
-/* --- RESPONSIVIDADE DO MODAL --- */
-
-/* Tablets (Até 1024px) */
-@media (max-width: 1024px) {
-
-    /* Garante que o modal ocupe o espaço certo */
-    .modal-wrapper-conteudo {
-        max-width: 90%;
-        max-height: 90%;
-    }
-
-        .galeria-modal-imagem {
-        max-height: 50vh; 
+    .galeria-modal-imagem {
+        max-height: 40vh;
         width: auto;
         max-width: 90%;
         object-fit: contain;
     }
 
-        .galeria-imagem-container-texto {
-        font-size: 1.2rem;
-        line-height: 1.4;
-        padding: 10px; /* Evita que o texto encoste nas bordas */
-    }
-}
-
-/* Celulares (Até 768px) */
-@media (max-width: 768px) {
-
-    .galeria-modal-imagem {
-        max-height: 40vh; /* Diminuímos para garantir que o texto apareça embaixo */
-        width: auto;
-        max-width: 90%;
-        object-fit: contain; /* No modal SEMPRE usar contain para ver a foto inteira */
-    }
-
     .galeria-imagem-container-texto {
         font-size: 1rem;
         line-height: 1.4;
-        padding: 10px; /* Evita que o texto encoste nas bordas */
+        padding: 10px;
     }
 }

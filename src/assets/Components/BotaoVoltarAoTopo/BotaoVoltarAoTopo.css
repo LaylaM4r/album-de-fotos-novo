@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap');
-
+/* ============================================================
+   SEÇÃO 1: ESTRUTURA, POSICIONAMENTO E ESTADO VISÍVEL DO BOTÃO
+   ============================================================ */
 .botao-topo-flutuante {
-    /*posisão do botão*/
     position: fixed;
     bottom: 30px;
     right: 30px;
-
-    /* Visual do Botão */
     background-color: #e0e0e0;
     border: none;
     border-radius: 50px;
@@ -16,9 +14,8 @@
     gap: 12px;
     cursor: pointer;
     z-index: 9999;
-    /* Fica acima de tudo, inclusive da galeria */
-
-    /* Animação de Surgimento */
+    
+    /* Estado inicial oculto com animação de subida */
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -32,10 +29,13 @@
     transform: translateY(0);
 }
 
-.botao-topo-flutuante.visivel:hover{
+.botao-topo-flutuante.visivel:hover {
     transform: scale(1.04);
 }
 
+/* ============================================================
+   SEÇÃO 2: ÍCONE INTERNO E TEXTO RÓTULO
+   ============================================================ */
 .circulo-preto-seta {
     width: 32px;
     height: 32px;
@@ -47,11 +47,11 @@
     flex-shrink: 0;
 }
 
+/* Inverte a cor da seta para branco */
 .circulo-preto-seta img {
     width: 18px;
     height: 18px;
     filter: invert(1);
-    /* Deixa a seta branca se o SVG original for preto */
 }
 
 .texto-voltar {
@@ -62,7 +62,11 @@
     white-space: nowrap;
 }
 
-/* --- RESPONSIVIDADE (MOBILE) --- */
+/* ============================================================
+   SEÇÃO 3: AJUSTES DE RESPONSIVIDADE (MOBILE)
+   ============================================================ */
+
+/* Dispositivos móveis (Até 768px) */
 @media (max-width: 768px) {
     .botao-topo-flutuante {
         bottom: 20px;
@@ -71,14 +75,14 @@
         gap: 0;
     }
 
+    /* Oculta o texto descritivo para manter o botão compacto */
     .texto-voltar {
         display: none;
-        /* Esconde o texto no celular */
     }
 
+    /* Amplia a área do ícone para facilitar o toque na tela */
     .circulo-preto-seta {
         width: 40px;
-        /* Um pouco maior para facilitar o toque no celular */
         height: 40px;
     }
 }

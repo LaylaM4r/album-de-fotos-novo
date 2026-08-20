@@ -1,11 +1,12 @@
+/* ============================================================
+   SEÇÃO 1: ESTRUTURA E LINKS DA BARRA DE NAVEGAÇÃO
+   ============================================================ */
 .home-container-nav {
     display: flex;
     justify-content: center;
-    /* PERMITE QUE OS LINKS DESÇAM SE NÃO COUBEREM */
     flex-wrap: wrap;
     gap: 40px;
     padding: 30px 20px;
-    /* Adicionado padding lateral para não encostar na borda */
     border-bottom: 1px solid #eee;
     margin-bottom: 40px;
 }
@@ -19,17 +20,16 @@
     transition: all 0.3s ease;
     border-bottom: 2px solid transparent;
     white-space: nowrap;
-    /* Impede que o texto "imagemX" quebre no meio */
 }
 
 .home-container-nav-button:hover,
 .active-link {
     border-bottom: 2px solid;
-    /* Cor roxa sutil para combinar com seu ativo */
 }
 
-/*-- botão dark-mode --*/
-
+/* ============================================================
+   SEÇÃO 2: TOGGLE SWITCH E ÍCONES DO DARK MODE
+   ============================================================ */
 .dark-mode-container {
     display: flex;
     align-items: center;
@@ -39,21 +39,19 @@
     position: relative;
     display: inline-block;
     user-select: none;
-    /* Impede que o botão seja "selecionado" como texto */
     -webkit-user-select: none;
-    /* Para navegadores Safari/Chrome no iOS */
     width: 60px;
     height: 30px;
 }
 
-/* Esconde o checkbox original */
+/* Esconde o checkbox HTML padronizado */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* O trilho (fundo do botão) */
+/* Trilho (fundo) do switch */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -62,7 +60,6 @@
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    /* Cor desativado */
     transition: .4s;
     border-radius: 34px;
     display: flex;
@@ -70,7 +67,7 @@
     padding: 0 5px;
 }
 
-/* A bolinha que desliza */
+/* Bolinha deslizante */
 .slider:before {
     position: absolute;
     content: "";
@@ -84,17 +81,16 @@
     z-index: 1;
 }
 
-/* Cor de fundo quando ativado */
-input:checked+.slider {
+/* Estados e animação ao ativar o switch */
+input:checked + .slider {
     background-color: #5d3fd3;
 }
 
-/* Move a bolinha para a direita */
-input:checked+.slider:before {
+input:checked + .slider:before {
     transform: translateX(30px);
 }
 
-/* Posiciona o emoji dentro da bolinha ou do trilho */
+/* Ícones SVG centralizados sobre a bolinha */
 .icon {
     position: absolute;
     z-index: 2;
@@ -110,50 +106,40 @@ input:checked+.slider:before {
     user-select: none;
 }
 
-/* Estilo específico para o arquivo SVG */
 .toggle-icon-img {
-    width: 75%;  /* este valor para o ícone não ficar "colado" nas bordas da bolinha */
+    width: 75%;
     height: 75%;
     object-fit: contain;
 }
 
-/* Mantém o movimento sincronizado */
 input:checked + .slider .icon {
     transform: translateX(30px);
 }
 
-/* --- RESPONSIVIDADE PARA CELULARES --- */
+/* ============================================================
+   SEÇÃO 3: AJUSTES DE RESPONSIVIDADE (MOBILE)
+   ============================================================ */
+
+/* Dispositivos móveis padrão (Até 768px) */
 @media (max-width: 768px) {
     .home-container-nav {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center; /* Centraliza tudo na tela */
+        justify-content: center;
         align-items: center;
-        gap: 20px 50px; /* 12px de espaço vertical, 18px de espaço horizontal entre os links */
+        gap: 20px 50px;
         padding: 15px 10px;
     }
 
     .home-container-nav-button {
         font-size: 14px;
-        white-space: nowrap; /* Impede a quebra de linha no texto dos botões */
+        white-space: nowrap;
     }
 
-    /* O Switch do Dark Mode ocupa 100% da largura para ir para a linha de baixo */
     .dark-mode-container {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-top: 8px;
-    }
-}
-
-/* Ajuste para celulares muito pequenos (abaixo de 380px) */
-@media (max-width: 380px) {
-    .home-container-nav {
-        gap: 10px 12px; /* Reduz levemente o espaçamento horizontal para caber melhor */
-    }
-
-    .home-container-nav-button {
-        font-size: 12px;
     }
 }

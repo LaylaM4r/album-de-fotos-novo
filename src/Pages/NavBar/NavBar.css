@@ -1,0 +1,159 @@
+.home-container-nav {
+    display: flex;
+    justify-content: center;
+    /* PERMITE QUE OS LINKS DESÇAM SE NÃO COUBEREM */
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 30px 20px;
+    /* Adicionado padding lateral para não encostar na borda */
+    border-bottom: 1px solid #eee;
+    margin-bottom: 40px;
+}
+
+.home-container-nav-button {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 8px;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    /* Impede que o texto "imagemX" quebre no meio */
+}
+
+.home-container-nav-button:hover,
+.active-link {
+    border-bottom: 2px solid;
+    /* Cor roxa sutil para combinar com seu ativo */
+}
+
+/*-- botão dark-mode --*/
+
+.dark-mode-container {
+    display: flex;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    user-select: none;
+    /* Impede que o botão seja "selecionado" como texto */
+    -webkit-user-select: none;
+    /* Para navegadores Safari/Chrome no iOS */
+    width: 60px;
+    height: 30px;
+}
+
+/* Esconde o checkbox original */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* O trilho (fundo do botão) */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    /* Cor desativado */
+    transition: .4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+/* A bolinha que desliza */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Cor de fundo quando ativado */
+input:checked+.slider {
+    background-color: #5d3fd3;
+}
+
+/* Move a bolinha para a direita */
+input:checked+.slider:before {
+    transform: translateX(30px);
+}
+
+/* Posiciona o emoji dentro da bolinha ou do trilho */
+.icon {
+    position: absolute;
+    z-index: 2;
+    top: 4px;
+    left: 4px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .4s;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Estilo específico para o arquivo SVG */
+.toggle-icon-img {
+    width: 75%;  /* este valor para o ícone não ficar "colado" nas bordas da bolinha */
+    height: 75%;
+    object-fit: contain;
+}
+
+/* Mantém o movimento sincronizado */
+input:checked + .slider .icon {
+    transform: translateX(30px);
+}
+
+/* --- RESPONSIVIDADE PARA CELULARES --- */
+@media (max-width: 768px) {
+    .home-container-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centraliza tudo na tela */
+        align-items: center;
+        gap: 20px 50px; /* 12px de espaço vertical, 18px de espaço horizontal entre os links */
+        padding: 15px 10px;
+    }
+
+    .home-container-nav-button {
+        font-size: 14px;
+        white-space: nowrap; /* Impede a quebra de linha no texto dos botões */
+    }
+
+    /* O Switch do Dark Mode ocupa 100% da largura para ir para a linha de baixo */
+    .dark-mode-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+    }
+}
+
+/* Ajuste para celulares muito pequenos (abaixo de 380px) */
+@media (max-width: 380px) {
+    .home-container-nav {
+        gap: 10px 12px; /* Reduz levemente o espaçamento horizontal para caber melhor */
+    }
+
+    .home-container-nav-button {
+        font-size: 12px;
+    }
+}

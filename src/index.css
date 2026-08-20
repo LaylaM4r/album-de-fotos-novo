@@ -1,0 +1,41 @@
+* {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
+/* Cores para o modo claro (padrão) */
+:root {
+    --bg-home: #f1f1f1;
+    --texto-principal: #000;
+    --cor-borda: #eee;
+}
+
+/* Cores que serão ativadas pelo seu botão no Navbar */
+body.dark-mode {
+    --bg-home: #060314;      /* Um preto grafite elegante */
+    --texto-principal: #e6e6e6; /* Branco acinzentado para não arder o olho */
+    --cor-borda: #333333;
+}
+
+/* Aplicação Global */
+body {
+    background-color: var(--bg-home);
+    color: var(--texto-principal);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Efeito suave de transição */
+}
+
+.home-container-nav {
+    border-bottom: 1px solid var(--cor-borda); /* Em vez de #eee */
+}
+.home-container-nav-button {
+    color: var(--texto-principal); /* Garante que o link mude de cor */
+}
+
+.footer-container {
+    border-top: 1px solid var(--cor-borda);
+}
+
+body.dark-mode .footer-icone {
+    filter: invert(1); /* Inverte o preto para branco automaticamente */
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "data": "dia 14/04/2024",
+    "tipo": "IMAGEMX",
+    "imagens": [
+      "./image/fundo1.png"
+    ],
+    "texto": "Lorem ipsum dolor sit amet..."
+  },
+  {
+    "data": "dia 20/05/2024",
+    "tipo": "IMAGEMY",
+    "imagens": [
+      "./image/fundo2.png",
+      "./image/fundo2.png"
+    ],
+    "texto": "Lorem ipsum dolor sit amet..."
+  },
+  {
+    "data": "dia 27/11/2024",
+    "tipo": "IMAGEMZ",
+    "imagens": [
+      "./image/fundo3.png",
+      "./image/fundo3.png",
+      "./image/fundo3.png"
+    ],
+    "texto": "Lorem ipsum dolor sit amet..."
+  },
+  {
+    "data": "dia 02/03/2025",
+    "tipo": "IMAGEMX",
+    "imagens": [
+      "./image/fundo4.png",
+      "./image/fundo4.png",
+      "./image/fundo4.png",
+      "./image/fundo4.png"
+    ],
+    "texto": "Lorem ipsum dolor sit amet..."
+  },
+  {
+    "data": "dia 15/07/2025",
+    "tipo": "IMAGEMZ",
+    "imagens": [
+      "./image/fundo5.png",
+      "./image/fundo5.png",
+      "./image/fundo5.png",
+      "./image/fundo5.png",
+      "./image/fundo5.png"
+    ],
+    "texto": "Lorem ipsum dolor sit amet..."
+  },
+  {
+    "data": "dia 30/09/2025",
+    "tipo": "IMAGEMY",
+    "imagens": [
+      "./image/fundo6.png",
+      "./image/fundo6.png",
+      "./image/fundo6.png",
+      "./image/fundo6.png",
+      "./image/fundo6.png",
+      "./image/fundo6.png"
+    ],
+    "texto": "Lorem ipsum dolor sit amet..."
+  },
+  {
+    "data": "dia 07/10/2025",
+    "tipo": "IMAGEMX",
+    "imagens": [
+      "./image/fundo7.png",
+      "./image/fundo7.png",
+      "./image/fundo7.png",
+      "./image/fundo7.png",
+      "./image/fundo7.png",
+      "./image/fundo7.png",
+      "./image/fundo7.png"  
+    ],
+    "texto": "Lorem ipsum dolor sit amet..."
+  },
+  {
+    "data": "dia 01/02/2026",
+    "tipo": "IMAGEMZ",
+    "imagens": [
+      "./image/fundo8.png",
+      "./image/fundo8.png",
+      "./image/fundo8.png",
+      "./image/fundo8.png",
+      "./image/fundo8.png",
+      "./image/fundo8.png",
+      "./image/fundo8.png",
+      "./image/fundo8.png"   
+    ],
+    "texto": "Lorem ipsum dolor sit amet..."
+  },
+  {
+    "data": "dia 16/06/2026",
+    "tipo": "IMAGEMY",
+    "imagens": [
+      "./image/fundo9.png",
+      "./image/fundo9.png",
+      "./image/fundo9.png",
+      "./image/fundo9.png",
+      "./image/fundo9.png",
+      "./image/fundo9.png",
+      "./image/fundo9.png",
+      "./image/fundo9.png",
+      "./image/fundo9.png"
+    ],
+    "texto": "Lorem ipsum dolor sit amet..."
+  }
+]

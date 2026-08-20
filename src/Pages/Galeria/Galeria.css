@@ -1,0 +1,199 @@
+/* --- GRID DA GALERIA PRINCIPAL --- */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    gap: 25px;
+    padding: 40px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.galeria-titulo-principal {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.galeria-item {
+    max-width: 200px;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.galeria-item img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.galeria-item:hover {
+    transform: scale(1.04);
+}
+
+/* --- MODAL GLOBAL (OVERLAY) --- */
+/* --- MODAL GLOBAL (IGUAL À HOME) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    cursor: zoom-out;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* --- WRAPPER --- */
+.modal-wrapper-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Ajustado para 85% para bater com a Home */
+    max-width: 85%;
+    max-height: 85%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    /* Esconde scroll no Firefox */
+}
+
+/* --- BARRA DE ROLAGEM MINIMALISTA --- */
+
+/* Firefox */
+.modal-wrapper-conteudo {
+    scrollbar-width: thin;
+    scrollbar-color: #555 transparent;
+}
+
+/* Chrome, Edge e Safari */
+.modal-wrapper-conteudo::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-wrapper-conteudo::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+/* --- IMAGEM DENTRO DO MODAL --- */
+.galeria-modal-imagem {
+    width: auto;
+    height: auto;
+    max-height: 70vh;
+    /* Limita a altura para o texto aparecer sem scroll se for curto */
+    object-fit: contain;
+    border: 4px solid white;
+    flex-shrink: 0;
+    animation: zoomGiroSuave 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- TEXTOS --- */
+.galeria-imagem-container {
+    color: white;
+    text-align: center;
+    padding: 20px 0 40px;
+    flex-shrink: 0;
+}
+
+.galeria-imagem-container-data {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.galeria-imagem-container-texto {
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.galeria-imagem-container-data,
+.galeria-imagem-container-texto {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* --- RESPONSIVIDADE DA GALERIA --- */
+
+/* Tablets e Laptops (Até 1024px) */
+@media (max-width: 1024px) {
+    .galeria-grid {
+        grid-template-columns: repeat(3, minmax(180px, 220px)); 
+        gap: 20px;
+        padding: 30px 20px;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Celulares (Até 768px) */
+@media (max-width: 768px) {
+    .galeria-grid {
+        grid-template-columns: repeat(2, minmax(140px, 160px)); 
+        gap: 15px;
+        padding: 20px 10px;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* --- RESPONSIVIDADE DO MODAL --- */
+
+/* Tablets (Até 1024px) */
+@media (max-width: 1024px) {
+
+    /* Garante que o modal ocupe o espaço certo */
+    .modal-wrapper-conteudo {
+        max-width: 90%;
+        max-height: 90%;
+    }
+
+        .galeria-modal-imagem {
+        max-height: 50vh; 
+        width: auto;
+        max-width: 90%;
+        object-fit: contain;
+    }
+
+        .galeria-imagem-container-texto {
+        font-size: 1.2rem;
+        line-height: 1.4;
+        padding: 10px; /* Evita que o texto encoste nas bordas */
+    }
+}
+
+/* Celulares (Até 768px) */
+@media (max-width: 768px) {
+
+    .galeria-modal-imagem {
+        max-height: 40vh; /* Diminuímos para garantir que o texto apareça embaixo */
+        width: auto;
+        max-width: 90%;
+        object-fit: contain; /* No modal SEMPRE usar contain para ver a foto inteira */
+    }
+
+    .galeria-imagem-container-texto {
+        font-size: 1rem;
+        line-height: 1.4;
+        padding: 10px; /* Evita que o texto encoste nas bordas */
+    }
+}

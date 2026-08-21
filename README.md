@@ -1,16 +1,38 @@
-# React + Vite
+# 📸 Galeria & Álbum de Memórias — v2.0
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma evolução focada em **performance, arquitetura e refatoração de código** para a aplicação web desenvolvida em **React** e **Vite**. A versão 2.0 mantém a identidade visual e o design da primeira versão, mas traz um código significativamente mais leve, otimizado e expansível.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💡 Motivação & Evolução Técnica
 
-## React Compiler
+A primeira versão deste projeto foi desenvolvida em fevereiro de 2026. Após meses de estudos e aprofundamento em tecnologias front-end, decidi retornar ao código original para uma revisão completa. 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Com uma visão técnica mais madura, identifiquei gargalos de performance, oportunidades de refatoração, regras de CSS que causavam comportamentos indesejados no projeto. O resultado foi a implementação de novas ideias, uma aplicação muito mais leve, limpa, sustentável e fácil de manter.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 O que mudou na Versão 2.0?
+
+Enquanto a interface visual e o design do site foram mantidos para preservar a experiência, a estrutura interna passou por uma reformulação completa.
+
+### ✨ Principais Melhorias & Refatoração
+
+* **Otimização e Leveza do Código:** Refatoração ampla de componentes e estilização CSS, reduzindo a complexidade de renderização e deixando a navegação mais fluida e rápida.
+* **Novos Layouts e Templates de Exibição:** Introdução dos **Templates 7, 8 e 9**, permitindo novas combinações e disposições visuais para os blocos de fotos no JSON.
+* **Organização e "Documentação" Interna:** Padronização completa do código com comentários descritivos por seções nos arquivos JSX e CSS, facilitando a manutenção.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **React**, **Vite**, **React Router DOM**, **CSS3**, **HTML5**, **JSON**, **JavaScript**
+
+---
+
+## ⚙️ Destaques da Aplicação
+
+* **Sistemas de Templates Flexíveis:** Suporte expandido a múltiplos layouts visuais, para exibição variada de mídias.
+* **Persistência de Tema:** Modo Escuro e Claro com alternância suave e salvamento automático das preferências no `localStorage`.
+* **Visualização em Modal:** Expansão de fotos com rolagem interna, metadados (data e legenda).
+* **Navegação Inteligente:** Botão flutuante para retorno ao topo ativado dinamicamente pelo evento de scroll.

@@ -130,16 +130,16 @@ body {
 }
 
 .bloco-album-container .galeria-grid.grid-qtd-1 .imagem-album {
-    width: 100%;
-    max-width: 450px;
+    width: auto;
+    max-width: 100%;
+    max-height: 450px;
     height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
     cursor: zoom-in;
     border-radius: 4px;
     margin: 0 auto;
     display: block;
+    background: transparent; /* Garante que não haja cor de fundo */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
@@ -161,9 +161,10 @@ body {
 
 .bloco-album-container .galeria-grid.grid-qtd-2 .imagem-album {
     width: calc(50% - 8px);
+    max-height: 300px;
     height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    object-fit: contain;
+    cursor: zoom-in;
     border-radius: 4px;
     transition: transform 0.3s ease;
 }
@@ -185,9 +186,10 @@ body {
 
 .bloco-album-container .galeria-grid.grid-qtd-3 .imagem-album {
     width: calc(50% - 8px);
+    max-height: 280px;
     height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    cursor: zoom-in;
+    object-fit: contain;
     border-radius: 4px;
     transition: transform 0.3s ease;
 }
@@ -209,11 +211,18 @@ body {
 }
 
 .bloco-album-container .galeria-grid.grid-qtd-4 .imagem-album {
+    max-width: 280px;
+    max-height: 280px;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    cursor: zoom-in;
+    object-fit: contain;
     border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.bloco-album-container .galeria-grid.grid-qtd-4 .imagem-album:hover {
+    transform: scale(1.03);
 }
 
 /* Layout: 5 Fotos */
@@ -229,16 +238,22 @@ body {
 
 .bloco-album-container .galeria-grid.grid-qtd-5 .imagem-album {
     width: calc(50% - 10px);
+    max-height: 250px;
     height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    cursor: zoom-in;
+    object-fit: contain;
     border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.bloco-album-container .galeria-grid.grid-qtd-5 .imagem-album:hover {
+    transform: scale(1.03);
 }
 
 /* Layout: 6 Fotos */
 .bloco-album-container .galeria-grid.grid-qtd-6 {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     justify-items: center;
     align-items: center;
@@ -248,11 +263,18 @@ body {
 }
 
 .bloco-album-container .galeria-grid.grid-qtd-6 .imagem-album {
+    max-width: 250px;
+    max-height: 250px;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    cursor: zoom-in;
+    object-fit: contain;
     border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.bloco-album-container .galeria-grid.grid-qtd-6 .imagem-album:hover {
+    transform: scale(1.03);
 }
 
 /* Layout: 7 Fotos */
@@ -268,11 +290,18 @@ body {
 }
 
 .bloco-album-container .galeria-grid.grid-qtd-7 .imagem-album {
+    max-width: 250px;
+    max-height: 250px;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    cursor: zoom-in;
+    object-fit: contain;
     border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.bloco-album-container .galeria-grid.grid-qtd-7 .imagem-album:hover {
+    transform: scale(1.03);
 }
 
 .bloco-album-container .galeria-grid.grid-qtd-7 .imagem-album:nth-child(7) {
@@ -293,11 +322,18 @@ body {
 
 .bloco-album-container .galeria-grid.grid-qtd-8 .imagem-album {
     grid-column: span 2;
+    max-width: 250px;
+    max-height: 250px;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    cursor: zoom-in;
+    object-fit: contain;
     border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.bloco-album-container .galeria-grid.grid-qtd-8 .imagem-album:hover {
+    transform: scale(1.03);
 }
 
 .bloco-album-container .galeria-grid.grid-qtd-8 .imagem-album:nth-child(7) {
@@ -321,11 +357,18 @@ body {
 }
 
 .bloco-album-container .galeria-grid.grid-qtd-9 .imagem-album {
+    max-width: 250px;
+    max-height: 250px;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    cursor: zoom-in;
+    object-fit: contain;
     border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.bloco-album-container .galeria-grid.grid-qtd-9 .imagem-album:hover {
+    transform: scale(1.03);
 }
 
 /* ============================================================

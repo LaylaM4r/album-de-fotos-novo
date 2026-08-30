@@ -1,0 +1,56 @@
+.container-btn-upload {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* 1. Estilo Padrão / Modo Claro (Light Mode) */
+.btn-adicionar-memoria {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+
+    background-color: var(--bg-card, #ffffff);
+    color: var(--text-color, #1a1a1a);
+    border: 1px solid var(--border-color, #e2e8f0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-adicionar-memoria .btn-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8a5cf6;
+}
+
+.btn-adicionar-memoria:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. Modo Escuro (Dark Mode) - Aumentando especificidade sem !important */
+body.dark .container-btn-upload .btn-adicionar-memoria,
+body.dark-mode .container-btn-upload .btn-adicionar-memoria,
+.dark .container-btn-upload .btn-adicionar-memoria,
+.dark-mode .container-btn-upload .btn-adicionar-memoria,
+[data-theme="dark"] .container-btn-upload .btn-adicionar-memoria {
+    background-color: #19144d;
+    color: #ffffff;
+    border-color: #352c8c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .container-btn-upload .btn-adicionar-memoria:hover,
+body.dark-mode .container-btn-upload .btn-adicionar-memoria:hover,
+.dark .container-btn-upload .btn-adicionar-memoria:hover,
+.dark-mode .container-btn-upload .btn-adicionar-memoria:hover,
+[data-theme="dark"] .container-btn-upload .btn-adicionar-memoria:hover {
+    background-color: #251e6d;
+}

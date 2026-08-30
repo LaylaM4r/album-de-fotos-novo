@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import BlocoAlbum from '../assets/Components/Templates/BlocoAlbum';
 import dadosJson from '../Data/Datas.json';
-import { UploadModal } from '../assets/Components/UploadModal.jsx'
+import { UploadModal } from '../assets/Components/UploadModal.jsx';
+import './home.css'
 
-//renderiza a timeline sobre os dados do JSON
+//renderiza a timeline iterando sobre os dados do JSON
 function Home() {
     // Estado local para permitir a inserção de novas memórias temporárias
     const [blocosAlbum, setBlocosAlbum] = useState(dadosJson);
@@ -16,13 +17,13 @@ function Home() {
 
     return (
         <div className="home-container">
-            {/* Botão de teste/preview para abrir o modal de upload */}
-            <div style={{ textAlign: 'center', margin: '20px 0' }}>
+            {/* Container do botão de teste/preview */}
+            <div className="container-btn-upload">
                 <button 
                     onClick={() => setIsModalOpen(true)}
-                    style={{ padding: '10px 20px', cursor: 'pointer', borderRadius: '4px' }}
+                    className="btn-adicionar-memoria"
                 >
-                    ➕ Adicionar Foto/Memória (Modo Teste)
+                    <span className="btn-icon">+</span> Adicionar Foto/Memória
                 </button>
             </div>
 

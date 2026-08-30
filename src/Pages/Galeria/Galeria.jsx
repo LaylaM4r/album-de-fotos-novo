@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import dadosJson from '../../Data/Datas.json';
 import './Galeria.css';
 
 // Componente para listar e filtrar imagens por categoria com modal detalhado
-function Galeria({ categoria }) {
+function Galeria({ categoria, blocosAlbum = [] }) {
     // Guarda o objeto da foto ativa no modal ({ url, texto, data }) ou null se fechado
     const [fotoAberta, setFotoAberta] = useState(null);
 
-    // Filtra o JSON mantendo apenas os blocos correspondentes à categoria recebida
-    const itensFiltrados = dadosJson.filter(item => item.tipo === categoria);
+    // Filtra estritamente mantendo apenas os blocos cuja categoria corresponda à página atual
+    const itensFiltrados = blocosAlbum.filter(item => item.tipo === categoria);
 
     return (
         <div className="galeria-container">

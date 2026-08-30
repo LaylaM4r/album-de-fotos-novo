@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import BlocoAlbum from '../assets/Components/Templates/BlocoAlbum';
-import dadosJson from '../Data/Datas.json';
-import { UploadModal } from '../assets/Components/UploadModal.jsx';
-import './home.css'
+import { UploadModal } from '../assets/Components/UploadModal/UploadModal.jsx';
+import './home.css';
 
-//renderiza a timeline iterando sobre os dados do JSON
-function Home() {
-    // Estado local para permitir a inserção de novas memórias temporárias
-    const [blocosAlbum, setBlocosAlbum] = useState(dadosJson);
+//renderiza a timeline iterando sobre os dados recebidos via props
+function Home({ blocosAlbum, onAdicionarMemoria }) {
+    // Estado apenas para controlar a abertura/fechamento do modal
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-    // Adiciona o novo bloco no topo da timeline
-    const handleAdicionarMemoria = (novaMemoria) => {
-        setBlocosAlbum([novaMemoria, ...blocosAlbum]);
-    };
 
     return (
         <div className="home-container">
@@ -31,10 +24,10 @@ function Home() {
             <UploadModal 
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                onAdicionarMemoria={handleAdicionarMemoria}
+                onAdicionarMemoria={onAdicionarMemoria}
             />
 
-            {/* Mapeia o JSON para criar um bloco de álbum para cada registro de data */}
+            {/* Mapeia a lista global para criar um bloco de álbum para cada registro de data */}
             {blocosAlbum.map((item, index) => (
                 <BlocoAlbum 
                     key={index}

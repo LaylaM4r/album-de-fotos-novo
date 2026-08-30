@@ -1,9 +1,14 @@
+/* ============================================================
+   BOTÃO DE UPLOAD E CONTROLE DE TEMA (LIGHT / DARK MODE)
+   ============================================================ */
+
+/* Container de alinhamento do botão de inserção de memórias */
 .container-btn-upload {
     text-align: center;
     margin: 20px 0;
 }
 
-/* 1. Estilo Padrão / Modo Claro (Light Mode) */
+/* Base e Estilo Padrão / Modo Claro (Light Mode) */
 .btn-adicionar-memoria {
     display: inline-flex;
     align-items: center;
@@ -17,25 +22,28 @@
     transition: all 0.3s ease;
     outline: none;
 
+    /* Variáveis de tema com fallback para o modo claro */
     background-color: var(--bg-card, #ffffff);
     color: var(--text-color, #1a1a1a);
     border: 1px solid var(--border-color, #e2e8f0);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Ícone numérico/símbolo (+) dentro do botão */
 .btn-adicionar-memoria .btn-icon {
     font-size: 1.2rem;
     font-weight: bold;
     color: #8a5cf6;
 }
 
+/* Efeito de interatividade ao passar o mouse (Light Mode) */
 .btn-adicionar-memoria:hover {
     opacity: 0.9;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* 2. Modo Escuro (Dark Mode) - Aumentando especificidade sem !important */
+/* Sobrescrita para Modo Escuro (Dark Mode) */
 body.dark .container-btn-upload .btn-adicionar-memoria,
 body.dark-mode .container-btn-upload .btn-adicionar-memoria,
 .dark .container-btn-upload .btn-adicionar-memoria,
@@ -47,6 +55,7 @@ body.dark-mode .container-btn-upload .btn-adicionar-memoria,
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
+/* Efeito de interatividade ao passar o mouse (Dark Mode) */
 body.dark .container-btn-upload .btn-adicionar-memoria:hover,
 body.dark-mode .container-btn-upload .btn-adicionar-memoria:hover,
 .dark .container-btn-upload .btn-adicionar-memoria:hover,

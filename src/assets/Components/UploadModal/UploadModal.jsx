@@ -5,26 +5,23 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
   const [dataText, setDataText] = useState('');
   const [legenda, setLegenda] = useState('');
   const [qtdFotos, setQtdFotos] = useState(1);
+  const [categoria, setCategoria] = useState('IMAGEMX'); // Categoria/Galeria selecionada
   const [imagensPreview, setImagensPreview] = useState([]);
 
   if (!isOpen) return null;
 
-  // Função que adiciona o sistema de datas (DD/MM/AAAA)
+  // Função para aplicar a máscara de data (DD/MM/AAAA)
   const handleDataChange = (e) => {
-    // Remove qualquer caractere que não seja número
     let value = e.target.value.replace(/\D/g, '');
 
-    // Limita a no máximo 8 dígitos (DDMMYYYY)
     if (value.length > 8) {
       value = value.slice(0, 8);
     }
 
-    // Aplica a primeira barra após o dia
     if (value.length > 2) {
       value = `${value.slice(0, 2)}/${value.slice(2)}`;
     }
 
-    // Aplica a segunda barra após o mês
     if (value.length > 5) {
       value = `${value.slice(0, 5)}/${value.slice(5)}`;
     }
@@ -57,7 +54,8 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
     const novaMemoria = {
       data: dataText ? `dia ${dataText}` : 'dia --/--/----',
       texto: legenda,
-      imagens: imagensPreview
+      imagens: imagensPreview,
+      tipo: categoria // Define exclusivamente a galeria de destino
     };
 
     onAdicionarMemoria(novaMemoria);
@@ -65,13 +63,13 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
     setImagensPreview([]);
     setDataText('');
     setLegenda('');
+    setCategoria('IMAGEMX');
     onClose();
   };
 
   return (
     <div className="upload-modal-overlay" onClick={onClose}>
       <div className="upload-modal-content" onClick={(e) => e.stopPropagation()}>
-        {/* Botão de Fechar (X) */}
         <button className="upload-modal-close" onClick={onClose} aria-label="Fechar modal">
           ×
         </button>
@@ -113,7 +111,6 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
             />
           </div>
 
-          {/* Área de Preview das Imagens Selecionadas */}
           {imagensPreview.length > 0 && (
             <div className="upload-preview-box">
               <span className="upload-preview-label">
@@ -135,6 +132,16 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
               value={legenda}
               onChange={(e) => setLegenda(e.target.value)}
             />
+          </div>
+
+                    {/* Seleção da Galeria / Categoria */}
+          <div className="upload-form-group">
+            <label>Galeria de Destino:</label>
+            <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+              <option value="IMAGEMX">Galeria IMAGEMX</option>
+              <option value="IMAGEMY">Galeria IMAGEMY</option>
+              <option value="IMAGEMZ">Galeria IMAGEMZ</option>
+            </select>
           </div>
 
           <button type="submit" className="upload-submit-btn">

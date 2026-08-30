@@ -1,0 +1,273 @@
+/* ============================================================
+   1. ESTRUTURA DO MODAL E OVERLAY (DARK MODE)
+   ============================================================ */
+.upload-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+  animation: fadeInOverlay 0.15s ease-out forwards;
+}
+
+.upload-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 650px;
+  padding: 35px;
+  background: #050315;
+  border: 4px solid #1a1645;
+  border-radius: 20px;
+  color: #ffffff;
+  font-family: sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: modalBounceIn 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.upload-modal-title {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+.upload-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  color: #7b75b8;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.upload-modal-close:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* ============================================================
+   2. FORMULÁRIO E INPUTS (DARK MODE)
+   ============================================================ */
+.upload-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.upload-form-group label {
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.upload-form-group input[type="text"],
+.upload-form-group select,
+.upload-form-group textarea,
+.upload-form-group .upload-file-input {
+  width: 100%;
+  max-width: 380px;
+  padding: 12px 16px;
+  background: #19144d;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.upload-form-group input::placeholder,
+.upload-form-group textarea::placeholder {
+  color: #7b75b8;
+}
+
+.upload-form-group textarea {
+  resize: none;
+}
+
+.upload-file-input::-webkit-file-upload-button {
+  padding: 4px 10px;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* ============================================================
+   3. PRÉ-VISUALIZAÇÃO DE IMAGENS (PREVIEW)
+   ============================================================ */
+.upload-preview-box {
+  margin-bottom: 20px;
+  max-width: 380px;
+}
+
+.upload-preview-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #7b75b8;
+  margin-bottom: 8px;
+}
+
+.upload-preview-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.upload-preview-grid img {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #352c8c;
+}
+
+/* ============================================================
+   4. BOTÃO DE SUBMIT (DARK MODE)
+   ============================================================ */
+.upload-submit-btn {
+  margin-top: 10px;
+  padding: 12px 24px;
+  background: #19144d;
+  color: #ffffff;
+  border: 1px solid #352c8c;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.upload-submit-btn:hover {
+  background: #251e6d;
+}
+
+/* ============================================================
+   5. APLICAÇÃO EXCLUSIVA DO MODO CLARO (LIGHT MODE)
+   ============================================================ */
+
+/* Quando o body tiver as classes de light mode (ou não estiver em dark mode) */
+body.light .upload-modal-content,
+body.light-mode .upload-modal-content,
+body:not(.dark):not(.dark-mode) .upload-modal-content {
+  background: #e6e6e6;
+  border: 4px solid #8a5cf6;
+  color: #1e1b4b;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+body.light .upload-modal-title,
+body.light-mode .upload-modal-title,
+body:not(.dark):not(.dark-mode) .upload-modal-title,
+body.light .upload-form-group label,
+body.light-mode .upload-form-group label,
+body:not(.dark):not(.dark-mode) .upload-form-group label {
+  color: #1e1b4b;
+}
+
+body.light .upload-form-group input[type="text"],
+body.light .upload-form-group select,
+body.light .upload-form-group textarea,
+body.light .upload-form-group .upload-file-input,
+body.light-mode .upload-form-group input[type="text"],
+body.light-mode .upload-form-group select,
+body.light-mode .upload-form-group textarea,
+body.light-mode .upload-form-group .upload-file-input,
+body:not(.dark):not(.dark-mode) .upload-form-group input[type="text"],
+body:not(.dark):not(.dark-mode) .upload-form-group select,
+body:not(.dark):not(.dark-mode) .upload-form-group textarea,
+body:not(.dark):not(.dark-mode) .upload-form-group .upload-file-input {
+  background: #f1f5f9;
+  color: #1e1b4b;
+  border: 1px solid #cbd5e1;
+}
+
+body.light .upload-form-group input::placeholder,
+body.light .upload-form-group textarea::placeholder,
+body.light-mode .upload-form-group input::placeholder,
+body.light-mode .upload-form-group textarea::placeholder,
+body:not(.dark):not(.dark-mode) .upload-form-group input::placeholder,
+body:not(.dark):not(.dark-mode) .upload-form-group textarea::placeholder {
+  color: #64748b;
+}
+
+body.light .upload-modal-close,
+body.light-mode .upload-modal-close,
+body:not(.dark):not(.dark-mode) .upload-modal-close {
+  color: #64748b;
+}
+
+body.light .upload-modal-close:hover,
+body.light-mode .upload-modal-close:hover,
+body:not(.dark):not(.dark-mode) .upload-modal-close:hover {
+  color: #1e1b4b;
+}
+
+body.light .upload-submit-btn,
+body.light-mode .upload-submit-btn,
+body:not(.dark):not(.dark-mode) .upload-submit-btn {
+  background: #8a5cf6;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(138, 92, 246, 0.25);
+}
+
+body.light .upload-submit-btn:hover,
+body.light-mode .upload-submit-btn:hover,
+body:not(.dark):not(.dark-mode) .upload-submit-btn:hover {
+  background: #7c3aed;
+}
+
+body.light .upload-file-input::-webkit-file-upload-button,
+body.light-mode .upload-file-input::-webkit-file-upload-button,
+body:not(.dark):not(.dark-mode) .upload-file-input::-webkit-file-upload-button {
+  background: #8a5cf6;
+  color: #ffffff;
+}
+
+/* ============================================================
+   6. KEYFRAME / ANIMAÇÃO
+   ============================================================ */
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  75% {
+    transform: scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

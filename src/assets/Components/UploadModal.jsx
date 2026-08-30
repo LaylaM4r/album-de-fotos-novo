@@ -9,6 +9,29 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
 
   if (!isOpen) return null;
 
+  // Função que adiciona o sistema de datas (DD/MM/AAAA)
+  const handleDataChange = (e) => {
+    // Remove qualquer caractere que não seja número
+    let value = e.target.value.replace(/\D/g, '');
+
+    // Limita a no máximo 8 dígitos (DDMMYYYY)
+    if (value.length > 8) {
+      value = value.slice(0, 8);
+    }
+
+    // Aplica a primeira barra após o dia
+    if (value.length > 2) {
+      value = `${value.slice(0, 2)}/${value.slice(2)}`;
+    }
+
+    // Aplica a segunda barra após o mês
+    if (value.length > 5) {
+      value = `${value.slice(0, 5)}/${value.slice(5)}`;
+    }
+
+    setDataText(value);
+  };
+
   const handleImagesUpload = (e) => {
     const files = Array.from(e.target.files);
     if (!files.length) return;
@@ -38,7 +61,7 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
     };
 
     onAdicionarMemoria(novaMemoria);
-    
+
     setImagensPreview([]);
     setDataText('');
     setLegenda('');
@@ -60,9 +83,11 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
             <label>Data:</label>
             <input
               type="text"
-              placeholder="Ex:14/04/2024"
+              placeholder="Ex: 14/04/2024"
               value={dataText}
-              onChange={(e) => setDataText(e.target.value)}
+              onChange={handleDataChange}
+              maxLength={10}
+              inputMode="numeric"
             />
           </div>
 
@@ -106,7 +131,7 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
             <label>Legenda texto</label>
             <textarea
               rows="2"
-              placeholder="Escreve a legenda desta memória..."
+              placeholder="Escreva a legenda desta memória..."
               value={legenda}
               onChange={(e) => setLegenda(e.target.value)}
             />

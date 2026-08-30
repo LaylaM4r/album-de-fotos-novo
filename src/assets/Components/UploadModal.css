@@ -13,7 +13,7 @@
 
 .upload-modal-content {
   background: #050315;
-  border: 1px solid #1a1645;
+  border: 4px solid #1a1645;
   border-radius: 20px;
   padding: 35px;
   width: 90%;
@@ -137,4 +137,67 @@
 
 .upload-submit-btn:hover {
   background: #251e6d;
+}
+
+/* ===== ANIMAÇÕES REFINADAS ===== */
+
+/* Fade in do fundo mais rápido e sutil */
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Bounce mais curto e elegante */
+@keyframes modalBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8); /* Começa mais perto do tamanho original */
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05); /* Expande apenas 5% em vez de 10% */
+  }
+  75% {
+    transform: scale(0.98); /* Contração mínima */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== APLICAÇÃO ===== */
+
+.upload-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Diminuí um pouco a escuridão do fundo também */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px); /* Blur mais leve */
+
+  /* Fade in encurtado para 0.15s */
+  animation: fadeInOverlay 0.15s ease-out forwards;
+}
+
+.upload-modal-content {
+  background: #050315;
+  border-radius: 20px;
+  padding: 35px;
+  width: 90%;
+  max-width: 650px;
+  color: #ffffff;
+  position: relative;
+
+  /* Bounce encurtado para 0.35s para ser mais "snappy" (rápido) */
+  animation: modalBounceIn 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }

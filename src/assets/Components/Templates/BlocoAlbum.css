@@ -190,6 +190,8 @@ body:not(.dark):not(.dark-mode) .drag-handle span {
     transform: scale(1);
 }
 
+
+
 /* ============================================================
    SEÇÃO 4: MODAL DE ZOOM E ANIMAÇÕES
    ============================================================ */
@@ -537,7 +539,52 @@ body:not(.dark):not(.dark-mode) .drag-handle span {
 }
 
 /* ============================================================
-   SEÇÃO 7: AJUSTES DE RESPONSIVIDADE (MOBILE)
+   SEÇÃO 7: APLICAÇÃO DO MODO CLARO (LIGHT MODE)
+   ============================================================ */
+
+/* Ícone Hambúrguer no Light Mode */
+body.light .drag-handle span,
+body.light-mode .drag-handle span,
+body:not(.dark):not(.dark-mode) .drag-handle span {
+    background-color: #1a1a1a;
+}
+
+/* Miniatura flutuante (Preview) no Light Mode */
+body.light .bloco-album-container.drag-preview-custom,
+body.light-mode .bloco-album-container.drag-preview-custom,
+body:not(.dark):not(.dark-mode) .bloco-album-container.drag-preview-custom {
+    background-color: #e6e6e6;
+    border: 4px solid #8a5cf6;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Borda do Alvo de Soltura no Light Mode */
+body.light .bloco-album-container.drop-target-active,
+body.light-mode .bloco-album-container.drop-target-active,
+body:not(.dark):not(.dark-mode) .bloco-album-container.drop-target-active {
+    border-color: #8a5cf6;
+}
+
+/* Overlay Pontilhado (Dropzone) no Light Mode */
+body.light .dropzone-overlay,
+body.light-mode .dropzone-overlay,
+body:not(.dark):not(.dark-mode) .dropzone-overlay {
+    background-color: rgba(230, 230, 230, 0.93);
+    background-image: radial-gradient(rgba(30, 27, 75, 0.25) 1px, transparent 1px);
+}
+
+/* Balão com o Texto "Arraste e solte..." no Light Mode */
+body.light .dropzone-overlay span,
+body.light-mode .dropzone-overlay span,
+body:not(.dark):not(.dark-mode) .dropzone-overlay span {
+    color: #ffffff;
+    background-color: #8a5cf6;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(138, 92, 246, 0.3);
+}
+
+/* ============================================================
+   SEÇÃO 8: AJUSTES DE RESPONSIVIDADE (MOBILE)
    ============================================================ */
 @media (max-width: 768px) {
     .bloco-album-container {

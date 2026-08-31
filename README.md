@@ -18,8 +18,6 @@ Enquanto a interface visual e o design do site foram mantidos para preservar a e
 
 ### ✨ Principais Melhorias & Refatoração
 
-### ✨ Principais Melhorias & Refatoração
-
 * **Otimização e Leveza do Código:** Refatoração ampla de componentes e estilização CSS, reduzindo a complexidade de renderização e deixando a navegação mais fluida e rápida.
 * **Novos Layouts e Templates de Exibição:** Introdução dos **Templates 7, 8 e 9**, permitindo novas combinações e disposições visuais para os blocos de fotos no JSON.
 * **Módulo de Envio e Upload de Mídias:** Implementação do menu e fluxo interativo para upload de novas fotos na interface.
@@ -33,8 +31,6 @@ Enquanto a interface visual e o design do site foram mantidos para preservar a e
 * **React**, **Vite**, **React Router DOM**, **CSS3**, **HTML5**, **JSON**, **JavaScript**
 
 ---
-
-## ⚙️ Destaques da Aplicação
 
 ## ⚙️ Destaques da Aplicação
 

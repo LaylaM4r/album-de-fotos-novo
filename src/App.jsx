@@ -23,12 +23,13 @@ function App() {
 
       {/* Mapeamento das rotas da aplicação */}
       <Routes>
-        {/* Rota principal (página inicial) enviando o estado e a função de envio */}
+        {/* Rota principal (página inicial) enviando o estado, a função de atualização e a função de envio */}
         <Route 
           path="/" 
           element={
             <Home 
               blocosAlbum={blocosAlbum} 
+              setBlocosAlbum={setBlocosAlbum} // Permite que a Home reordene a lista global de blocos
               onAdicionarMemoria={handleAdicionarMemoria} 
             />
           } 

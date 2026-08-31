@@ -26,7 +26,57 @@ body {
 }
 
 /* ============================================================
-   SEÇÃO 2: MODAL DE ZOOM E ANIMAÇÕES
+   SEÇÃO 2: CABEÇALHO DO BLOCO (REORDENAÇÃO)
+   ============================================================ */
+.bloco-cabecalho {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Mantém a data centralizada */
+    width: 100%;
+    max-width: 800px; /* Alinhado com a largura da grade */
+    margin: 0 auto 20px auto;
+}
+
+/* Ícone Hambúrguer */
+.drag-handle {
+    position: absolute;
+    right: 0; /* Alinha na borda direita da foto */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 24px;
+    height: 24px;
+    cursor: grab;
+    padding: 4px;
+    z-index: 2;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+.drag-handle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+/* Suporte ao Modo Claro (Light Mode) */
+body.light .drag-handle span,
+body.light-mode .drag-handle span,
+body:not(.dark):not(.dark-mode) .drag-handle span {
+    background-color: #1a1a1a;
+}
+
+/* ============================================================
+   SEÇÃO 3: MODAL DE ZOOM E ANIMAÇÕES
    ============================================================ */
 .modal-overlay {
     position: fixed;
@@ -91,7 +141,7 @@ body {
 }
 
 /* ============================================================
-   SEÇÃO 3: ESTRUTURA BASE DO CONTAINER DO ÁLBUM
+   SEÇÃO 4: ESTRUTURA BASE DO CONTAINER DO ÁLBUM
    ============================================================ */
 .bloco-album-container {
     width: 100%;
@@ -117,7 +167,7 @@ body {
 }
 
 /* ============================================================
-   SEÇÃO 4: LAYOUTS DINÂMICOS DE GRADE (1 A 9 FOTOS)
+   SEÇÃO 5: LAYOUTS DINÂMICOS DE GRADE (1 A 9 FOTOS)
    ============================================================ */
 
 /* Layout: 1 Foto */
@@ -372,7 +422,7 @@ body {
 }
 
 /* ============================================================
-   SEÇÃO 5: AJUSTES DE RESPONSIVIDADE (MOBILE)
+   SEÇÃO 6: AJUSTES DE RESPONSIVIDADE (MOBILE)
    ============================================================ */
 @media (max-width: 768px) {
     .bloco-album-container {

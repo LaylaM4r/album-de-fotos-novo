@@ -38,6 +38,15 @@
   color: #ffffff;
 }
 
+.upload-modal-subtitle {
+  font-size: 1rem;
+  color: #888888; /* Tom cinza suave */
+  margin-top: -8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-style: italic;
+}
+
 .upload-modal-close {
   position: absolute;
   top: 20px;

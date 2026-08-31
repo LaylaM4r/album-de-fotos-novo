@@ -33,7 +33,29 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
     const files = Array.from(e.target.files);
     if (!files.length) return;
 
-    const newImageUrls = files.slice(0, qtdFotos).map((file) => URL.createObjectURL(file));
+    // Limite de 5MB por foto (5 * 1024 * 1024 bytes)
+    const MAX_SIZE_MB = 5;
+    const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
+
+    const fotosValidas = [];
+
+    for (const file of files) {
+      // Verifica se o tamanho do arquivo ultrapassa o limite
+      if (file.size > MAX_SIZE_BYTES) {
+        alert(`A imagem "${file.name}" excede o limite de ${MAX_SIZE_MB}MB e não foi adicionada.`);
+      } else {
+        fotosValidas.push(file); // Adiciona apenas as fotos dentro do limite
+      }
+    }
+
+    // Se nenhuma foto for válida, interrompe e limpa o input
+    if (fotosValidas.length === 0) {
+      e.target.value = ''; 
+      return;
+    }
+
+    // Cria as URLs temporárias apenas com as fotos válidas
+    const newImageUrls = fotosValidas.slice(0, qtdFotos).map((file) => URL.createObjectURL(file));
     setImagensPreview(newImageUrls);
   };
 
@@ -75,6 +97,9 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
         </button>
 
         <h2 className="upload-modal-title">Adicionar novas memórias:</h2>
+        <p className="upload-modal-subtitle">
+          (As fotos são exibidas apenas na sua sessão e não ficam salvas em servidor) (Pressionando F5 o site volta ao padrão)
+        </p>
 
         <form onSubmit={handleSubmit}>
           <div className="upload-form-group">
@@ -101,7 +126,7 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
           </div>
 
           <div className="upload-form-group">
-            <label>Selecione uma foto:</label>
+            <label>Selecione uma foto (máx. 5MB):</label>
             <input
               type="file"
               accept="image/*"
@@ -134,7 +159,7 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
             />
           </div>
 
-                    {/* Seleção da Galeria / Categoria */}
+          {/* Seleção da Galeria / Categoria */}
           <div className="upload-form-group">
             <label>Galeria de Destino:</label>
             <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
@@ -145,7 +170,7 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
           </div>
 
           <button type="submit" className="upload-submit-btn">
-            Adicionar Memória
+            Adicionar Fotos
           </button>
         </form>
       </div>

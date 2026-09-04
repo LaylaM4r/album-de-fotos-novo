@@ -280,3 +280,77 @@ body:not(.dark):not(.dark-mode) .upload-file-input::-webkit-file-upload-button {
     transform: scale(1);
   }
 }
+
+/* ============================================================
+   7. AJUSTES DE RESPONSIVIDADE (MOBILE)
+   ============================================================ */
+@media (max-width: 768px) {
+  .upload-modal-overlay {
+    padding: 16px; /* Garante que o modal não encoste nas bordas do celular */
+    box-sizing: border-box;
+  }
+
+  .upload-modal-content {
+    width: 100%;
+    max-width: 420px; /* Reduz a largura máxima para se adequar a telas pequenas */
+    max-height: 90vh; /* Limita a altura a 90% da tela */
+    overflow-y: auto; /* Adiciona rolagem interna caso o celular seja pequeno na vertical */
+    padding: 24px 20px 20px 20px;
+    border-radius: 16px;
+    box-sizing: border-box;
+  }
+
+  .upload-modal-close {
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+  }
+
+  .upload-modal-title {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    padding-right: 25px; /* Evita que o título fique sob o X de fechar */
+  }
+
+  .upload-modal-subtitle {
+    font-size: 0.82rem;
+    margin-top: -6px;
+    margin-bottom: 16px;
+  }
+
+  .upload-form-group {
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .upload-form-group label {
+    font-size: 0.95rem;
+  }
+
+  .upload-form-group input[type="text"],
+  .upload-form-group select,
+  .upload-form-group textarea,
+  .upload-form-group .upload-file-input {
+    max-width: 100%; /* Permite que o input ocupe 100% da largura do card */
+    padding: 10px 12px;
+    font-size: 0.88rem;
+    box-sizing: border-box;
+  }
+
+  .upload-preview-box {
+    max-width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .upload-preview-grid img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .upload-submit-btn {
+    width: 100%; /* Botão em largura total para facilitar o clique com o polegar */
+    padding: 12px;
+    font-size: 0.95rem;
+    margin-top: 5px;
+  }
+}

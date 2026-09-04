@@ -588,12 +588,34 @@ body:not(.dark):not(.dark-mode) .dropzone-overlay span {
    ============================================================ */
 @media (max-width: 768px) {
     .bloco-album-container {
-        padding: 20px 0;
-        margin-bottom: 2rem;
+        padding: 15px 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .bloco-cabecalho {
+        margin: 0 auto 15px auto;
+        padding: 0 40px 0 10px; /* Garante espaço para o ícone hambúrguer à direita */
+        box-sizing: border-box;
+    }
+
+    .bloco-album-container .titulo-data-imagem-home {
+        font-size: clamp(1.2rem, 5vw, 1.4rem); /* Tamanho responsivo que não estoura */
+        margin-bottom: 0;
+        line-height: 1.2;
+        text-align: center;
+        padding: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Ajuste do ícone Hambúrguer no mobile */
+    .drag-handle {
+        right: 10px;
     }
 
     .bloco-album-container .bloco-wrapper {
-        margin: 20px auto;
+        margin: 15px auto;
         padding: 0 15px;
         gap: 15px;
     }
@@ -655,14 +677,6 @@ body:not(.dark):not(.dark-mode) .dropzone-overlay span {
         padding: 0 15px;
         text-align: center;
         margin-top: 10px;
-    }
-
-    .bloco-album-container .titulo-data-imagem-home {
-        font-size: clamp(1.5rem, 8vw, 2rem); 
-        margin-bottom: 15px;
-        line-height: 1.2;
-        text-align: center;
-        padding: 0 10px;
     }
 
     .modal-imagem {

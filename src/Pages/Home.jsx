@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BlocoAlbum from '../assets/Components/Templates/BlocoAlbum';
 import { UploadModal } from '../assets/Components/UploadModal/UploadModal.jsx';
-import './home.css';
+import './Home.css';
 
 //renderiza a timeline iterando sobre os dados recebidos via props
 function Home({ blocosAlbum, setBlocosAlbum, onAdicionarMemoria }) {

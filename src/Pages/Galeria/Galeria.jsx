@@ -29,12 +29,13 @@ function Galeria({ categoria, blocosAlbum = [] }) {
                             // Salva a imagem e os metadados (data/texto) no estado para abrir o modal
                             onClick={() => setFotoAberta({
                                 url: url,
+                                nome: item.nomesImagens?.[indexImg],
                                 texto: item.texto,
                                 data: item.data
                             })}
                         >
                             {/* Imagem do item da galeria com texto alternativo dinâmico */}
-                            <img src={url} alt={`Memória ${categoria}`} />
+                            <img src={url} alt={item.nomesImagens?.[indexImg] || `Memória ${categoria}`} />
                         </div>
                     ));
                 })}
@@ -57,13 +58,16 @@ function Galeria({ categoria, blocosAlbum = [] }) {
                         <img
                             className="galeria-modal-imagem"
                             src={fotoAberta.url}
-                            alt="Expandida"
+                            alt={fotoAberta.nome || 'Expandida'}
                         />
 
                         {/* Bloco de dados complementares (Data e Texto descritivo) */}
                         <div className='galeria-imagem-container'>
                             {fotoAberta.data && (
                                 <p className='galeria-imagem-container-data'>{fotoAberta.data}</p>
+                            )}
+                            {fotoAberta.nome && (
+                                <p className='galeria-imagem-container-data'>{fotoAberta.nome}</p>
                             )}
                             {fotoAberta.texto && (
                                 <h3 className='galeria-imagem-container-texto'>{fotoAberta.texto}</h3>

@@ -48,6 +48,8 @@ function Home({ blocosAlbum, setBlocosAlbum, onAdicionarMemoria }) {
                     index={index}           // Índice atual do item no array
                     data={item.data}       // Data de exibição no cabeçalho do bloco
                     imagens={item.imagens} // Lista de URLs das fotos do bloco
+                    nomesImagens={item.nomesImagens}
+                    template={item.template}
                     texto={item.texto}     // Texto descritivo/legenda do bloco
                     draggedIndex={draggedIndex}       // Estado que indica qual bloco está sendo arrastado
                     setDraggedIndex={setDraggedIndex} // Função para atualizar o bloco que está em movimento

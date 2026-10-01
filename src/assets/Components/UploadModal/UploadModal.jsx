@@ -29,7 +29,7 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
     setDataText(value);
   };
 
-  const handleImagesUpload = (e) => {
+  const handleImagesUpload = async (e) => {
     const files = Array.from(e.target.files);
     if (!files.length) return;
 
@@ -54,9 +54,20 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
       return;
     }
 
-    // Cria as URLs temporárias apenas com as fotos válidas
-    const newImageUrls = fotosValidas.slice(0, qtdFotos).map((file) => URL.createObjectURL(file));
-    setImagensPreview(newImageUrls);
+    try {
+      const imagens = await Promise.all(fotosValidas.slice(0, qtdFotos).map((file) => (
+        new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve({ src: reader.result, nome: file.name });
+          reader.onerror = () => reject(reader.error);
+          reader.readAsDataURL(file);
+        })
+      )));
+      setImagensPreview(imagens);
+    } catch {
+      alert('Não foi possível carregar uma das imagens selecionadas.');
+      setImagensPreview([]);
+    }
   };
 
   const handleQtdChange = (e) => {
@@ -76,7 +87,9 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
     const novaMemoria = {
       data: dataText ? `dia ${dataText}` : 'dia --/--/----',
       texto: legenda,
-      imagens: imagensPreview,
+      imagens: imagensPreview.map((imagem) => imagem.src),
+      nomesImagens: imagensPreview.map((imagem) => imagem.nome),
+      template: qtdFotos,
       tipo: categoria // Define exclusivamente a galeria de destino
     };
 
@@ -98,7 +111,7 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
 
         <h2 className="upload-modal-title">Adicionar novas memórias:</h2>
         <p className="upload-modal-subtitle">
-          (As fotos são exibidas apenas na sua sessão e não ficam salvas em servidor) (Pressionando F5 o site volta ao padrão)
+          As fotos e informações ficam salvas neste navegador, sem envio para um servidor.
         </p>
 
         <form onSubmit={handleSubmit}>
@@ -142,8 +155,8 @@ export function UploadModal({ isOpen, onClose, onAdicionarMemoria }) {
                 Pré-visualização ({imagensPreview.length}/{qtdFotos}):
               </span>
               <div className="upload-preview-grid">
-                {imagensPreview.map((src, idx) => (
-                  <img key={idx} src={src} alt={`Preview ${idx + 1}`} />
+                {imagensPreview.map((imagem, idx) => (
+                  <img key={idx} src={imagem.src} alt={imagem.nome} title={imagem.nome} />
                 ))}
               </div>
             </div>

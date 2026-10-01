@@ -6,6 +6,8 @@ import './BlocoAlbum.css';
 function BlocoAlbum({ 
     data, 
     imagens = [], 
+    nomesImagens = [],
+    template,
     texto, 
     index, 
     draggedIndex, 
@@ -30,7 +32,7 @@ function BlocoAlbum({
     
     // Calcula a classe CSS dinâmica conforme o número de imagens (ex: grid-qtd-3)
     const qtdImagens = imagensExibidas.length;
-    const classeGrade = `galeria-grid grid-qtd-${qtdImagens}`;
+    const classeGrade = `galeria-grid grid-qtd-${template || qtdImagens}`;
 
     // Disparado quando o usuário inicia o arrasto do bloco
     const handleDragStart = (e) => {
@@ -138,7 +140,7 @@ function BlocoAlbum({
                             loading='lazy' // Carregamento sob demanda para performance
                             className='imagem-album'
                             src={img}
-                            alt={`Foto ${indexImg + 1}`}
+                            alt={nomesImagens[indexImg] || `Foto ${indexImg + 1}`}
                             onClick={() => setFotoFoco(img)} // Abre modal ao clicar
                         />
                     ))}
